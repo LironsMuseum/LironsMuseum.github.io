@@ -1,105 +1,183 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>LironsMuseum</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: linear-gradient(180deg, #0f172a, #1e293b);
-            color: white;
-            text-align: center;
-        }
+<meta charset="UTF-8">
+<title>Liron's Museum</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        header {
-            padding: 60px 20px;
-            background: rgba(0,0,0,0.4);
-        }
+<style>
+*{box-sizing:border-box;}
 
-        h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
-        }
+body{
+  margin:0;
+  min-height:100vh;
+  background: radial-gradient(circle at top, #2a1405 0%, #0f0705 70%);
+  color:#ffe9d6;
+  font-family:"Segoe UI", Arial, sans-serif;
+}
 
-        p {
-            font-size: 18px;
-            max-width: 700px;
-            margin: 0 auto 20px auto;
-            line-height: 1.6;
-        }
+.container{
+  max-width:900px;
+  margin:0 auto;
+  padding:24px;
+}
 
-        .section {
-            padding: 50px 20px;
-        }
+h1{
+  text-align:center;
+  margin-bottom:12px;
+  color:#ff9a2e;
+}
 
-        .card {
-            background: rgba(255,255,255,0.05);
-            padding: 25px;
-            margin: 20px auto;
-            border-radius: 12px;
-            max-width: 600px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.4);
-        }
+h2{
+  margin-top:32px;
+  color:#ffb866;
+  border-bottom:1px solid rgba(255,154,46,0.3);
+  padding-bottom:6px;
+}
 
-        footer {
-            padding: 20px;
-            background: rgba(0,0,0,0.5);
-            font-size: 14px;
-            margin-top: 40px;
-        }
+h3{
+  margin-top:24px;
+  color:#ff9a2e;
+}
 
-        button {
-            padding: 12px 25px;
-            border: none;
-            border-radius: 8px;
-            background-color: #38bdf8;
-            color: black;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+p, li{
+  line-height:1.6;
+  margin-bottom:12px;
+}
 
-        button:hover {
-            background-color: #0ea5e9;
-        }
-    </style>
+ul{
+  padding-left:20px;
+}
+
+img{
+  max-width:100%;
+  border-radius:14px;
+  margin:24px 0;
+  filter: drop-shadow(0 0 18px rgba(255,154,46,0.6));
+}
+
+.nav{
+  text-align:center;
+  margin-bottom:32px;
+}
+
+.nav a{
+  margin:0 10px;
+  color:#ffbd73;
+  text-decoration:none;
+}
+
+.nav a:hover{
+  text-decoration:underline;
+}
+
+.buttons{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin:32px 0;
+}
+
+.btn{
+  padding:14px 22px;
+  border-radius:12px;
+  font-weight:600;
+  text-decoration:none;
+  color:#2a1405;
+  background:#ff9a2e;
+  box-shadow:0 0 14px rgba(255,154,46,0.7);
+  transition:transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 22px rgba(255,154,46,1);
+}
+
+.btn.secondary{
+  background:#ffb866;
+}
+
+.btn.disabled{
+  background:#5a3a20;
+  color:#caa07a;
+  box-shadow:none;
+  cursor:not-allowed;
+  pointer-events:none;
+}
+
+.easter{
+  color:#ff3333 !important;
+  text-shadow:0 0 12px rgba(255,0,0,0.9);
+  letter-spacing:2px;
+}
+</style>
 </head>
+
 <body>
+<div class="container">
 
-<header>
-    <h1>🏛️ LironsMuseum</h1>
-    <p>Bem-vindo ao LironsMuseum — um espaço dedicado à arte, criatividade e projetos únicos.</p>
-    <button onclick="alert('Obrigado por visitar o LironsMuseum!')">Explorar</button>
-</header>
+<h1 id="title">Liron's Museum</h1>
 
-<div class="section">
-    <div class="card">
-        <h2>Sobre o Museu</h2>
-        <p>O LironsMuseum é um projeto criativo que reúne ideias, histórias e experiências digitais. 
-        Cada exposição representa uma parte do universo imaginativo criado por Liron.</p>
-    </div>
+<p style="text-align:center; opacity:0.85;">
+Uma AU ambientada no universo de Dandy
+</p>
 
-    <div class="card">
-        <h2>Exposições</h2>
-        <p>🎨 Arte Digital<br>
-           🎮 Projetos Interativos<br>
-           📜 História dos Personagens<br>
-           🌌 Conceitos Originais</p>
-    </div>
+<!-- IMPORTANTE: imagem agora com caminho relativo -->
+<img src="assets/imagens/lirons-museum.png" alt="Liron's Museum">
 
-    <div class="card">
-        <h2>Atualizações</h2>
-        <p>Novas exposições e conteúdos são adicionados regularmente. 
-        Fique atento para novidades e futuras expansões do museu!</p>
-    </div>
+<div class="buttons">
+  <a class="btn" href="LironsMuseum-toons.html">
+    Ver Toons
+  </a>
+
+  <a class="btn secondary" href="#">
+    Devlog (em breve)
+  </a>
+
+  <span class="btn disabled">
+    Comics (em breve)
+  </span>
 </div>
 
-<footer>
-    © 2026 LironsMuseum — Todos os direitos reservados.
-</footer>
+<h2>Lore</h2>
+<p id="lore-text">
+O Museu de Liron, oficialmente LIFEMUSEUM, foi criado após o fracasso do Show do Liron.
+</p>
+
+<p>
+Os fundadores desapareceram.  
+Os Toon Handlers foram demitidos.  
+E os toons ficaram presos.
+</p>
+
+<p>
+Eles não conseguem sair.  
+Eles não conseguem pedir ajuda.  
+E o museu continua funcionando… sozinho.
+</p>
+
+<h2>Status do Projeto</h2>
+<p id="status-text">
+Projeto em desenvolvimento ativo, com foco em narrativa ambiental
+e eventos sazonais.
+</p>
+
+</div>
+
+<script>
+setTimeout(() => {
+  const targets = document.querySelectorAll(
+    "#title, #lore-text, #status-text"
+  );
+
+  targets.forEach(el => {
+    el.textContent = "I SEE YOU";
+    el.classList.add("easter");
+  });
+}, 600000); // 10 minutos
+</script>
 
 </body>
 </html>
