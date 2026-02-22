@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Diário - Noah</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    background: #e8dcc7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Caveat', cursive;
+}
+
+.pagina {
+    background: #fdf6e3;
+    width: 700px;
+    max-width: 90%;
+    padding: 60px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    border-radius: 5px;
+    position: relative;
+}
+
+.data {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.texto {
+    font-size: 28px;
+    line-height: 1.6;
+    white-space: pre-line;
+}
+
+.assinatura {
+    margin-top: 40px;
+    text-align: right;
+    font-size: 26px;
+}
+
+.botao {
+    margin-top: 50px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.botao button {
+    padding: 10px 25px;
+    border-radius: 10px;
+    border: none;
+    background: #222;
+    color: white;
+    cursor: pointer;
+}
+
+.botao button:hover {
+    opacity: 0.8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="pagina">
+
+<div class="data">17 de Outubro</div>
+
+<div class="texto">
+Hoje eu fui demitido do meu trabalho...
+
+Acontece que o Museu irá fechar, e nenhum funcionário será mais preciso...
+
+Mas... eu vou sentir falta dele...
+
+Eu vou sentir falta do Bluy. Ele sempre foi um toon tão bom de cuidar...
+
+Eu adorei ser o cuidador dele nesse tempo que durou.
+
+Espero que ele continue forte como sempre...
+
+Até mesmo sem mim.
+</div>
+
+<div class="assinatura">
+— Noah Kins
+</div>
+
+<div class="botao">
+<button onclick="ir()">Fechar o diário</button>
+</div>
+
+</div>
+
+<script>
+function ir(){
+    window.location.href = "/downloads.html?origem=noah";
+}
+</script>
+
+</body>
+</html>
