@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Memorando Interno</title>
+
+<style>
+body {
+    margin: 0;
+    background: #2b2b2b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: "Courier New", monospace;
+}
+
+.papel {
+    background: #f1e6c8;
+    width: 750px;
+    max-width: 90%;
+    padding: 60px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.7);
+    position: relative;
+    line-height: 1.7;
+    font-size: 20px;
+}
+
+/* Bordas rasgadas simuladas */
+.papel::before,
+.papel::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    left: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        #2b2b2b 10px,
+        #2b2b2b 20px
+    );
+}
+
+.papel::before {
+    top: -20px;
+}
+
+.papel::after {
+    bottom: -20px;
+}
+
+.titulo {
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.falha {
+    background: #f1e6c8;
+    color: #f1e6c8;
+    border-bottom: 2px solid #000;
+    padding: 0 10px;
+}
+
+.assinatura {
+    margin-top: 40px;
+    text-align: right;
+    font-style: italic;
+}
+
+.botao {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.botao button {
+    padding: 10px 25px;
+    border-radius: 5px;
+    border: none;
+    background: #111;
+    color: #fff;
+    cursor: pointer;
+}
+
+.botao button:hover {
+    opacity: 0.8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="papel">
+
+<div class="titulo">
+Nota para todos os cuidadores de toons:
+</div>
+
+<p>
+Liron continua agindo com raiva à outros toons, se ele começar
+<span class="falha">██████████</span>
+chame ele à minha sala.
+</p>
+
+<p>
+Cuide de seus toon com cuidado, qualquer dano à algum toon
+<span class="falha">██████</span>
+sairá de seu salário.
+</p>
+
+<p>
+Reporte ações estranhas à direção do museu.
+</p>
+
+<div class="assinatura">
+— Mason Miller
+</div>
+
+<div class="botao">
+<button onclick="ir()">Arquivar documento</button>
+</div>
+
+</div>
+
+<script>
+function ir(){
+    window.location.href = "/downloads.html?origem=direction";
+}
+</script>
+
+</body>
+</html>
