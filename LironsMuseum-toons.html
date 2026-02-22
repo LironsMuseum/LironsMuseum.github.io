@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Liron's Museum | Toons</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --primary:#ffaa00;
+  --a:#ff4444;
+  --b:#ff9933;
+  --c:#ffdd55;
+  --d:#55ff88;
+  --e:#55aaff;
+  --f:#bb66ff;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+
+body{
+  background:radial-gradient(circle at top,#4a2408 0%,#2a1405 45%,#0f0705 80%);
+  color:#ffe9d6;
+  font-family:"Segoe UI",Arial,sans-serif;
+}
+
+.container{max-width:1200px;margin:auto;padding:40px 24px;}
+
+h1{text-align:center;color:#ffb347;}
+.subtitle{text-align:center;opacity:.8;margin-bottom:40px;}
+
+/* ---------- ACCORDION ---------- */
+.section{margin-bottom:24px;}
+.section h2{
+  cursor:pointer;
+  padding:12px;
+  border-left:5px solid;
+  background:rgba(255,154,46,.08);
+  border-radius:10px;
+}
+.section.closed .content{display:none;}
+
+/* ---------- GRID / CARD ---------- */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+  gap:16px;
+  margin-top:18px;
+}
+
+.card{
+  background:rgba(20,10,5,.75);
+  border-radius:14px;
+  padding:10px;
+  text-align:center;
+}
+
+.card img{
+  width:100%;
+  max-height:110px;
+  height:auto;
+  object-fit:contain;
+  border-radius:10px;
+  background:#2a1405;
+  margin-bottom:6px;
+}
+
+.card p{font-size:13px;color:#ffd9b0;}
+.card.no-img{padding:18px;}
+
+/* ---------- TABS (Classe E) ---------- */
+.tabs{display:flex;gap:10px;margin:14px 0;flex-wrap:wrap;}
+.tab-btn{
+  background:#2a1405;
+  border:1px solid rgba(255,154,46,.4);
+  color:#ffe9d6;
+  padding:6px 12px;
+  border-radius:8px;
+  cursor:pointer;
+  opacity:.6;
+}
+.tab-btn.active{
+  opacity:1;
+  border-color:#ff9a2e;
+}
+.tab-content{display:none;}
+.tab-content.active{display:block;}
+.subgroup-title{margin:10px 0 6px;font-size:13px;opacity:.7;}
+
+/* ---------- CORES ---------- */
+.primary h2{border-color:var(--primary);}
+.a h2{border-color:var(--a);}
+.b h2{border-color:var(--b);}
+.c h2{border-color:var(--c);}
+.d h2{border-color:var(--d);}
+.e h2{border-color:var(--e);}
+.f h2{border-color:var(--f);}
+
+.back-link{text-align:center;margin-top:40px;}
+.back-link a{color:#ffb866;text-decoration:none;font-size:14px;}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<h1>Liron's Museum — Toons</h1>
+<p class="subtitle">Catálogo de personagens e classificações</p>
+
+<!-- PRIMARY -->
+<section class="section primary">
+<h2>🔶 Primary</h2>
+<div class="card">
+  <img src="/assets/imagens/lirons-museum/primary/liron-firebloom-card.png"
+       onerror="this.src='/assets/imagens/not-found-card.png'">
+  <p>Liron Firebloom</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- A -->
+<section class="section a closed">
+<h2>🟥 Classe A</h2>
+<div class="card">
+  <img src="/assets/imagens/lirons-museum/a/spike-striker-card.png"
+       onerror="this.src='/assets/imagens/not-found-card.png'">
+  <p>Spike Striker</p>
+</div>
+
+<div class="card">
+  <img src="/assets/imagens/lirons-museum/a/straps-anxat-card.png"
+       onerror="this.src='/assets/imagens/not-found-card.png'">
+  <p>Straps Anxat</p>
+</div>
+
+<div class="card">
+  <img src="/assets/imagens/lirons-museum/a/puffin-cloudtail-card.png"
+       onerror="this.src='/assets/imagens/not-found-card.png'">
+  <p>Puffin Cloudtail</p>
+</div>
+</div></div>
+</section>
+
+<!-- B -->
+<section class="section b closed">
+<h2>🟧 Classe B</h2>
+<div class="grid">
+  <div class="card"><img src="/assets/imagens/lirons-museum/b/cardog-cardboard-card.png" onerror="this.src='/assets/imagens/not-found-card.png'"><p>Cardog Cardboard</p></div>
+  <div class="card"><img src="/assets/imagens/lirons-museum/b/violet-lizzy-card.png" onerror="this.src='/assets/imagens/not-found-card.png'"><p>Violet & Lizzy</p></div>
+  <div class="card"><img src="/assets/imagens/lirons-museum/b/garrett-watertraveller-card.png" onerror="this.src='/assets/imagens/not-found-card.png'"><p>Garrett Watertraveller</p></div>
+  <div class="card"><img src="/assets/imagens/lirons-museum/b/matt-masquerade-card.png" onerror="this.src='/assets/imagens/not-found-card.png'"><p>Matt Masquerade</p></div>
+  <div class="card"><img src="/assets/imagens/lirons-museum/b/willy-partey-card.png" onerror="this.src='/assets/imagens/not-found-card.png'"><p>Willy Partey</p></div>
+  <div class="card"><img src="/assets/imagens/lirons-museum/b/lily-foldery-card.png" onerror="this.src='/assets/imagens/not-found-card.png'"><p>Lily Foldery</p></div>
+  <div class="card"><img src="/assets/imagens/lirons-museum/b/lurian-nautrelis-card.png" onerror="this.src='/assets/imagens/not-found-card.png'"><p>Lurian Nautrelis</p></div>
+  <div class="card"><img src="/assets/imagens/lirons-museum/b/luki-crocogator-card.png" onerror="this.src='/assets/imagens/not-found-card.png'"><p>Luki Crocogator</p></div>
+</div>
+</div></div>
+</section>
+
+<!-- C -->
+<section class="section c closed">
+<h2>🟨 Classe C</h2>
+<div class="grid">
+  <div class="card"><img src="/assets/imagens/lirons-museum/c/dylan-summery-card.png" onerror="this.src='/assets/imagens/not-found-card.png'"><p>Dylan Summery</p></div>
+  <div class="card"><img src="/assets/imagens/lirons-museum/c/lunaris-aurelyn-card.png" onerror="this.src='/assets/imagens/not-found-card.png'"><p>Lunaris Aurelyn</p></div>
+  <div class="card"><img src="/assets/imagens/lirons-museum/c/mike-hardshell-card.png" onerror="this.src='/assets/imagens/not-found-card.png'"><p>Mike Hardshell</p></div>
+  <div class="card"><img src="/assets/imagens/lirons-museum/c/maris-seastar-card.png" onerror="this.src='/assets/imagens/not-found-card.png'"><p>Maris SeaStar</p></div>
+  <div class="card"><img src="/assets/imagens/lirons-museum/c/milly-verdant-card.png" onerror="this.src='/assets/imagens/not-found-card.png'"><p>Milly Verdant</p></div>
+  <div class="card"><img src="/assets/imagens/lirons-museum/c/creamy-sweetmilk-card.png" onerror="this.src='/assets/imagens/not-found-card.png'"><p>Creamy SweetMilk</p></div>
+  <div class="card"><img src="/assets/imagens/lirons-museum/c/sarah-brooks-card.png" onerror="this.src='/assets/imagens/not-found-card.png'"><p>Sarah Brooks</p></div>
+  <div class="card"><img src="/assets/imagens/lirons-museum/c/jesse-deepecho-card.png" onerror="this.src='/assets/imagens/not-found-card.png'"><p>Jesse DeepEcho</p></div>
+  <div class="card"><img src="/assets/imagens/lirons-museum/c/vexel-sharduntis-card.png" onerror="this.src='/assets/imagens/not-found-card.png'"><p>Vexel Sharduntis</p></div>
+</div>
+</div></div>
+</section>
+
+<!-- D -->
+<section class="section d closed">
+<h2>🟩 Classe D</h2>
+<div class="grid">
+  <div class="card">
+    <img src="/assets/imagens/lirons-museum/d/blyenn-bluefield-card.png"
+         onerror="this.src='/assets/imagens/not-found-card.png'">
+    <p>
+      <a href="https://blakewolfy.github.io/LM-bluy.html"
+         style="color:#ffd9b0;text-decoration:none;">
+        Blyenn Bluefield (Bluy)
+      </a>
+    </p>
+  </div>
+
+  <div class="card"><img src="/assets/imagens/lirons-museum/d/hazel-icedcream-card.png" onerror="this.src='/assets/imagens/not-found-card.png'"><p>Hazel Icedcream</p></div>
+  <div class="card"><img src="/assets/imagens/lirons-museum/d/shiro-card.png" onerror="this.src='/assets/imagens/not-found-card.png'"><p>Shiro</p></div>
+  <div class="card"><img src="/assets/imagens/lirons-museum/d/solaris-novartis-card.png" onerror="this.src='/assets/imagens/not-found-card.png'"><p>Solaris Novartis</p></div>
+  <div class="card"><img src="/assets/imagens/lirons-museum/d/v1rus-n3x0r-card.png" onerror="this.src='/assets/imagens/not-found-card.png'"><p>V1rus / N3x0r</p></div>
+  <div class="card"><img src="/assets/imagens/lirons-museum/d/rose-sanghwaje-card.png" onerror="this.src='/assets/imagens/not-found-card.png'"><p>Rose Sanghwaje</p></div>
+</div>
+</div></div>
+</section>
+
+<!-- E -->
+<section class="section e closed">
+<h2>🟦 Classe E — Subgrupos</h2>
+<div class="content">
+
+<div class="tabs">
+  <button class="tab-btn active" data-tab="hall">🍬 Halloween</button>
+  <button class="tab-btn" data-tab="nat">❄️ Natal</button>
+  <button class="tab-btn" data-tab="eas">🥚 Páscoa</button>
+</div>
+
+<!-- 🎃 HALLOWEEN -->
+<div id="hall" class="tab-content active">
+  <div class="grid">
+
+    <div class="card">
+      <img src="/assets/imagens/lirons-museum/e/halloween/batly-deepecho-card.png"
+           onerror="this.src='/assets/imagens/not-found-card.png'">
+      <p>Batly DeepEcho</p>
+    </div>
+
+    <div class="card">
+      <img src="/assets/imagens/lirons-museum/e/halloween/billy-gourdyard-card.png"
+           onerror="this.src='/assets/imagens/not-found-card.png'">
+      <p>Billy Gourdyard<br><small>(Bella Gravey)</small></p>
+    </div>
+
+    <div class="card">
+      <img src="/assets/imagens/lirons-museum/e/halloween/harley-card.png"
+           onerror="this.src='/assets/imagens/not-found-card.png'">
+      <p>Harley 厄运</p>
+    </div>
+
+    <div class="card">
+      <img src="/assets/imagens/lirons-museum/e/halloween/candy-sugartooth-card.png"
+           onerror="this.src='/assets/imagens/not-found-card.png'">
+      <p>Candy SugarTooth</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ❄️ NATAL -->
+<div id="nat" class="tab-content">
+  <div class="grid">
+
+    <div class="card">
+      <img src="/assets/imagens/lirons-museum/e/natal/henry-gifty-card.png"
+           onerror="this.src='/assets/imagens/not-found-card.png'">
+      <p>Henry Gifty</p>
+    </div>
+
+    <div class="card">
+      <img src="/assets/imagens/lirons-museum/e/natal/frostey-snowy-card.png"
+           onerror="this.src='/assets/imagens/not-found-card.png'">
+      <p>Frostey Snowy</p>
+    </div>
+
+    <div class="card">
+      <img src="/assets/imagens/lirons-museum/e/natal/cappy-winterwhisper-card.png"
+           onerror="this.src='/assets/imagens/not-found-card.png'">
+      <p>Cappy WinterWhisper</p>
+    </div>
+
+    <div class="card">
+      <img src="/assets/imagens/lirons-museum/e/natal/fiona-starling-card.png"
+           onerror="this.src='/assets/imagens/not-found-card.png'">
+      <p>Fiona Starling</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- 🥚 PÁSCOA -->
+<div id="eas" class="tab-content">
+  <div class="grid">
+
+    <div class="card">
+      <img src="/assets/imagens/lirons-museum/e/pascoa/eggsley-vanilloa-card.png"
+           onerror="this.src='/assets/imagens/not-found-card.png'">
+      <p>Eggsley Vanilloa</p>
+    </div>
+
+    <div class="card">
+      <img src="/assets/imagens/lirons-museum/e/pascoa/carrol-farmey-card.png"
+           onerror="this.src='/assets/imagens/not-found-card.png'">
+      <p>Carrol Farmey</p>
+    </div>
+
+    <div class="card">
+      <img src="/assets/imagens/lirons-museum/e/pascoa/basley-egginton-card.png"
+           onerror="this.src='/assets/imagens/not-found-card.png'">
+      <p>Basley Egginton</p>
+    </div>
+
+    <div class="card">
+      <img src="/assets/imagens/lirons-museum/e/pascoa/choccy-vanilloa-card.png"
+           onerror="this.src='/assets/imagens/not-found-card.png'">
+      <p>Choccy Vanilloa</p>
+    </div>
+</div>
+
+</div>
+</section>
+
+<!-- F -->
+<section class="section f closed">
+<h2>🟪 Classe F (Leads)</h2>
+<div class="content"><div class="grid">
+  <div class="card no-img"><p>Don</p></div>
+  <div class="card no-img"><p>Nixxy</p></div>
+  <div class="card no-img"><p>Condressa Lockie</p></div>
+</div></div>
+</section>
+
+<div class="back-link">
+<a href="https://blakewolfy.github.io/projects.html">← Voltar para Projetos</a>
+</div>
+
+</div>
+
+<script>
+// accordion (corrigido)
+document.querySelectorAll(".section > h2").forEach(h2=>{
+  h2.addEventListener("click", ()=>{
+    const section = h2.parentElement;
+    section.classList.toggle("closed");
+  });
+});
+
+// tabs
+document.querySelectorAll(".tab-btn").forEach(btn=>{
+  btn.onclick=()=>{
+    btn.parentElement.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+    document.querySelectorAll(".tab-content").forEach(c=>c.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById(btn.dataset.tab).classList.add("active");
+  };
+});
+</script>
+
+</body>
+</html>
