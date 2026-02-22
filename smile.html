@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Jornal da Cidade</title>
+
+<style>
+body {
+    margin: 0;
+    background: #f4ecd8;
+    font-family: "Times New Roman", serif;
+    color: #111;
+}
+
+.jornal {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 40px;
+    background: #fffdf5;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    border: 1px solid #ccc;
+}
+
+.topo {
+    text-align: center;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.data {
+    font-size: 14px;
+}
+
+.titulo {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.subtitulo {
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.conteudo {
+    column-count: 2;
+    column-gap: 40px;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 1.6;
+}
+
+.pagina4 {
+    text-align: right;
+    margin-top: 40px;
+    font-style: italic;
+    cursor: pointer;
+}
+
+.pagina4:hover {
+    text-decoration: underline;
+}
+</style>
+</head>
+
+<body>
+
+<div class="jornal">
+
+<div class="topo">
+    <div class="data">Edição Especial • 12 de Outubro de 2009</div>
+</div>
+
+<div class="titulo">
+Fechamento do Museu do Liron
+</div>
+
+<div class="subtitulo">
+Após o fracasso que foi o Show...
+</div>
+
+<div class="conteudo">
+Após o fracasso que foi o Show, os fundadores do famoso museu para personagens animados, conhecido como Lifemuseum, anunciaram oficialmente o fechamento do estabelecimento nesta manhã.
+
+Muitas crianças estão tristes que nunca mais poderão visitar seus personagens favoritos. O museu, que durante anos foi considerado um dos pontos turísticos mais visitados da região, encerra suas atividades sob circunstâncias ainda não totalmente esclarecidas.
+
+Funcionários foram vistos deixando o prédio às pressas ainda durante a madrugada. Alguns relatam que certos registros foram removidos antes do anúncio oficial.
+
+Moradores afirmam ter ouvido sons incomuns vindos do interior do museu nas últimas semanas.
+</div>
+
+<div class="pagina4" onclick="irParaArquivo()">
+Mais informações na página 4 deste jornal →
+</div>
+
+</div>
+
+<script>
+function irParaArquivo(){
+    window.location.href = "/downloads.html?origem=smile";
+}
+</script>
+
+</body>
+  </html>
