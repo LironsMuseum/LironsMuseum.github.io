@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Arquivo</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at top, #2b0d00, #120400);
+    color: white;
+    text-align: center;
+}
+
+.container {
+    padding: 60px 20px;
+}
+
+.erro {
+    color: #ff5e5e;
+    font-size: 28px;
+    text-shadow: 0 0 15px rgba(255,0,0,0.6);
+}
+
+.botao {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 14px 30px;
+    border-radius: 15px;
+    background: linear-gradient(45deg, #ff8a00, #ffb347);
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 0 15px rgba(255,150,0,0.7);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="conteudo"></div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const origem = params.get("origem");
+
+const container = document.getElementById("conteudo");
+
+let arquivo = null;
+
+if (origem === "smile") {
+    arquivo = "assets/arquivos/imagens/terminal.jpg";
+}
+else if (origem === "noah") {
+    arquivo = "assets/arquivos/imagens/noah.png";
+}
+else if (origem === "direction") {
+    arquivo = "assets/arquivos/textos/Resignation letter.pdf";
+}
+
+if (!arquivo) {
+
+    // Tela 404 falsa
+    container.innerHTML = `
+        <div class="erro">404</div>
+        <p>Essa página não existe.</p>
+    `;
+
+} else {
+
+    container.innerHTML = `
+        <h1>Arquivo Recuperado</h1>
+        <p>Acesso autorizado.</p>
+        <button class="botao" onclick="baixar()">Baixar Arquivo</button>
+    `;
+
+    window.baixar = function() {
+        const link = document.createElement("a");
+        link.href = arquivo;
+        link.download = "";
+        link.click();
+    }
+}
+</script>
+
+</body>
+  </html>
