@@ -2,192 +2,83 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<title>Liron's Museum Wiki</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Liron | Liron's Museum Wiki</title>
 
 <style>
 body{
   margin:0;
-  font-family:Segoe UI, Arial, sans-serif;
-  background:#f2f2f2;
-  color:#202122;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#f6f6f6;
 }
 
-/* Topo */
-.header{
-  background:#ffffff;
-  border-bottom:2px solid #f39c12;
-  padding:15px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.header h1{
-  font-size:20px;
-  margin:0;
-  font-weight:normal;
-}
-
-.search{
-  padding:6px;
-  border:1px solid #aaa;
-  border-radius:3px;
-}
-
-/* Layout principal */
-.container{
-  display:flex;
-  max-width:1200px;
-  margin:20px auto;
-  gap:20px;
-  padding:0 10px;
-}
-
-/* Sidebar */
-.sidebar{
-  width:220px;
-  background:white;
-  border:1px solid #ccc;
+.topbar{
+  background:#2c2f33;
+  color:white;
   padding:15px;
+  text-align:center;
+  font-size:20px;
 }
 
-.sidebar h3{
-  font-size:15px;
-  border-bottom:1px solid #ddd;
-  padding-bottom:5px;
-}
-
-.sidebar a{
-  display:block;
-  color:#0645ad;
-  text-decoration:none;
-  margin:5px 0;
-  font-size:14px;
-}
-
-.sidebar a:hover{
-  text-decoration:underline;
-}
-
-/* Conteúdo */
-.content{
-  flex:1;
-  background:white;
-  border:1px solid #ccc;
+.container{
+  max-width:900px;
+  margin:40px auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+  gap:20px;
   padding:20px;
 }
 
-/* Títulos */
-.content h2{
-  border-bottom:1px solid #ddd;
-  padding-bottom:5px;
-}
-
-/* Infobox */
-.infobox{
-  float:right;
-  width:260px;
-  background:#fff8e6;
-  border:1px solid #f39c12;
-  padding:10px;
-  margin:0 0 15px 15px;
-  font-size:14px;
-  border-radius:5px;
-}
-
-.infobox h3{
+.card{
+  background:white;
+  padding:25px;
+  border:1px solid #ccc;
   text-align:center;
-  margin-top:0;
-  background:#f39c12;
-  color:white;
-  padding:5px;
-  border-radius:3px;
-}
-
-/* Links */
-a{
-  color:#0645ad;
+  cursor:pointer;
+  transition:0.2s;
   text-decoration:none;
+  color:#202122;
 }
 
-a:hover{
-  text-decoration:underline;
+.card:hover{
+  transform:translateY(-5px);
+  border-color:#ff9800;
 }
 
-/* Categorias */
-.categories{
-  margin-top:30px;
-  padding-top:10px;
-  border-top:1px solid #ddd;
-  font-size:13px;
-}
-
-/* Responsivo */
-@media(max-width:800px){
-  .container{
-    flex-direction:column;
-  }
-  .infobox{
-    float:none;
-    margin:0 auto 20px auto;
-  }
-  .sidebar{
-    width:100%;
-  }
+.card h2{
+  margin:0;
+  color:#ff9800;
 }
 </style>
 </head>
 
 <body>
 
-<div class="header">
-  <h1>Liron's Museum Wiki</h1>
-  <input class="search" type="text" placeholder="Pesquisar...">
+<div class="topbar">
+  Liron's Museum Wiki
 </div>
 
 <div class="container">
 
-  <div class="sidebar">
-    <h3>Navegação</h3>
-    <a href="#">Página Principal</a>
-    <a href="#">Personagens</a>
-    <a href="#">Locais</a>
-    <a href="#">Comics</a>
-    <a href="#">Teorias</a>
-  </div>
+  <a class="card" href="Wiki_toon.html?name=Liron">
+    <h2>Personagens</h2>
+  </a>
 
-  <div class="content">
+  <a class="card" href="Wiki_trinket.html?name=GoldenClock">
+    <h2>Trinkets</h2>
+  </a>
 
-    <div class="infobox">
-      <h3>Liron</h3>
-      <p><strong>Tipo:</strong> Toon</p>
-      <p><strong>Status:</strong> Ativo</p>
-      <p><strong>Afiliação:</strong> Museu</p>
-      <p><strong>Primeira Aparição:</strong> 2026</p>
-    </div>
+  <a class="card" href="Wiki_Item.html?name=OldKey">
+    <h2>Itens</h2>
+  </a>
 
-    <h1>Liron</h1>
+  <a class="card" href="Wiki_Codes.html?name=Release2026">
+    <h2>Códigos</h2>
+  </a>
 
-    <p><b>Liron</b> é um personagem da AU <i>Liron's Museum</i>, inspirada no universo de Dandy's World.</p>
-
-    <h2>História</h2>
-    <p>Liron foi criado como parte do projeto alternativo ambientado em um museu misterioso abandonado após o fechamento do local.</p>
-
-    <h2>Personalidade</h2>
-    <p>Observador, enigmático e curioso. Possui comportamento imprevisível em determinadas situações.</p>
-
-    <h2>Curiosidades</h2>
-    <ul>
-      <li>Um dos primeiros conceitos da AU.</li>
-      <li>Possui ligação com eventos ocultos do museu.</li>
-    </ul>
-
-    <div class="categories">
-      Categoria: Personagens | Categoria: Liron's Museum | Categoria: Toons
-    </div>
-
-  </div>
+  <a class="card" href="Wiki_Subplace.html?name=MainHall">
+    <h2>Subplaces</h2>
+  </a>
 
 </div>
 
