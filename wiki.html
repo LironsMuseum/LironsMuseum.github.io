@@ -2,153 +2,194 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Liron's Museum — WIKI</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liron | Liron's Museum Wiki</title>
 
 <style>
-*{box-sizing:border-box;}
-
 body{
   margin:0;
-  background:#120904;
-  color:#ffe9d6;
-  font-family:"Segoe UI", Arial, sans-serif;
+  font-family:Segoe UI, Arial, sans-serif;
+  background:#f2f2f2;
+  color:#202122;
 }
 
+/* Topo */
+.header{
+  background:#ffffff;
+  border-bottom:2px solid #f39c12;
+  padding:15px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.header h1{
+  font-size:20px;
+  margin:0;
+  font-weight:normal;
+}
+
+.search{
+  padding:6px;
+  border:1px solid #aaa;
+  border-radius:3px;
+}
+
+/* Layout principal */
 .container{
-  max-width:1000px;
-  margin:0 auto;
-  padding:30px;
+  display:flex;
+  max-width:1200px;
+  margin:20px auto;
+  gap:20px;
+  padding:0 10px;
 }
 
-h1{
-  text-align:center;
-  color:#ff9a2e;
-  margin-bottom:10px;
+/* Sidebar */
+.sidebar{
+  width:220px;
+  background:white;
+  border:1px solid #ccc;
+  padding:15px;
 }
 
-.subtitle{
-  text-align:center;
-  opacity:.7;
-  margin-bottom:40px;
+.sidebar h3{
+  font-size:15px;
+  border-bottom:1px solid #ddd;
+  padding-bottom:5px;
 }
 
-.section{
-  margin-bottom:40px;
-  padding:20px;
-  border:1px solid rgba(255,154,46,0.2);
-  border-radius:12px;
-  background:rgba(255,154,46,0.05);
-}
-
-h2{
-  color:#ffb866;
-  border-bottom:1px solid rgba(255,154,46,0.3);
-  padding-bottom:6px;
-}
-
-ul{
-  padding-left:20px;
-}
-
-li{
-  margin-bottom:6px;
-}
-
-.nav{
-  text-align:center;
-  margin-bottom:30px;
-}
-
-.nav a{
-  color:#ffbd73;
+.sidebar a{
+  display:block;
+  color:#0645ad;
   text-decoration:none;
-  margin:0 10px;
+  margin:5px 0;
+  font-size:14px;
 }
 
-.nav a:hover{
+.sidebar a:hover{
   text-decoration:underline;
 }
 
-.secret{
-  margin-top:60px;
-  text-align:center;
+/* Conteúdo */
+.content{
+  flex:1;
+  background:white;
+  border:1px solid #ccc;
+  padding:20px;
+}
+
+/* Títulos */
+.content h2{
+  border-bottom:1px solid #ddd;
+  padding-bottom:5px;
+}
+
+/* Infobox */
+.infobox{
+  float:right;
+  width:260px;
+  background:#fff8e6;
+  border:1px solid #f39c12;
+  padding:10px;
+  margin:0 0 15px 15px;
   font-size:14px;
-  opacity:0.4;
+  border-radius:5px;
+}
+
+.infobox h3{
+  text-align:center;
+  margin-top:0;
+  background:#f39c12;
+  color:white;
+  padding:5px;
+  border-radius:3px;
+}
+
+/* Links */
+a{
+  color:#0645ad;
+  text-decoration:none;
+}
+
+a:hover{
+  text-decoration:underline;
+}
+
+/* Categorias */
+.categories{
+  margin-top:30px;
+  padding-top:10px;
+  border-top:1px solid #ddd;
+  font-size:13px;
+}
+
+/* Responsivo */
+@media(max-width:800px){
+  .container{
+    flex-direction:column;
+  }
+  .infobox{
+    float:none;
+    margin:0 auto 20px auto;
+  }
+  .sidebar{
+    width:100%;
+  }
 }
 </style>
 </head>
 
 <body>
+
+<div class="header">
+  <h1>Liron's Museum Wiki</h1>
+  <input class="search" type="text" placeholder="Pesquisar...">
+</div>
+
 <div class="container">
 
-<div class="nav">
-  <a href="index.html">Home</a> |
-  <a href="LironsMuseum-toons.html">Toons</a>
-</div>
+  <div class="sidebar">
+    <h3>Navegação</h3>
+    <a href="#">Página Principal</a>
+    <a href="#">Personagens</a>
+    <a href="#">Locais</a>
+    <a href="#">Comics</a>
+    <a href="#">Teorias</a>
+  </div>
 
-<h1>Liron's Museum — WIKI</h1>
-<p class="subtitle">Arquivo Enciclopédico Interno — Acesso Público Limitado</p>
+  <div class="content">
 
-<div class="section">
-<h2>📍 LIFEMUSEUM</h2>
-<p>
-Instalação afiliada a Gardenview. Criada após o cancelamento do Show do Liron.
-Opera atualmente sem supervisão humana ativa.
-</p>
-</div>
+    <div class="infobox">
+      <h3>Liron</h3>
+      <p><strong>Tipo:</strong> Toon</p>
+      <p><strong>Status:</strong> Ativo</p>
+      <p><strong>Afiliação:</strong> Museu</p>
+      <p><strong>Primeira Aparição:</strong> 2026</p>
+    </div>
 
-<div class="section">
-<h2>🎭 Classes de Toons</h2>
-<ul>
-<li><strong>Classe EX</strong> — Descartáveis</li>
-<li><strong>Classe A</strong> — Comuns</li>
-<li><strong>Classe B</strong> — Incomuns</li>
-<li><strong>Classe C</strong> — Raros</li>
-<li><strong>Classe D</strong> — Main Toons</li>
-<li><strong>Classe E</strong> — Holiday Toons</li>
-<li><strong>Classe F</strong> — Leads</li>
-</ul>
-</div>
+    <h1>Liron</h1>
 
-<div class="section">
-<h2>🚂 Sistema de Trem</h2>
-<p>
-Sistema de transporte restrito.
-Apenas Liron e membros da Classe F possuem autorização total.
-Tentativas de uso não autorizado resultam em bloqueio automático.
-</p>
-</div>
+    <p><b>Liron</b> é um personagem da AU <i>Liron's Museum</i>, inspirada no universo de Dandy's World.</p>
 
-<div class="section">
-<h2>🏛️ Lobby</h2>
-<ul>
-<li>Área inicial</li>
-<li>5 elevadores para o subsolo</li>
-<li>Estação ferroviária interna</li>
-<li>Comércio baseado em Shards</li>
-</ul>
-</div>
+    <h2>História</h2>
+    <p>Liron foi criado como parte do projeto alternativo ambientado em um museu misterioso abandonado após o fechamento do local.</p>
 
-<div class="section">
-<h2>⚠️ Incidentes Registrados</h2>
-<p>
-Diversas tentativas de fuga foram documentadas.
-Nenhuma bem-sucedida.
-</p>
-</div>
+    <h2>Personalidade</h2>
+    <p>Observador, enigmático e curioso. Possui comportamento imprevisível em determinadas situações.</p>
 
-<div class="secret">
-Arquivo monitorado.
-</div>
+    <h2>Curiosidades</h2>
+    <ul>
+      <li>Um dos primeiros conceitos da AU.</li>
+      <li>Possui ligação com eventos ocultos do museu.</li>
+    </ul>
+
+    <div class="categories">
+      Categoria: Personagens | Categoria: Liron's Museum | Categoria: Toons
+    </div>
+
+  </div>
 
 </div>
-
-<script>
-setTimeout(()=>{
-  document.querySelector(".secret").textContent="ACESSO OBSERVADO.";
-},300000);
-</script>
 
 </body>
-  </html>
+</html>
