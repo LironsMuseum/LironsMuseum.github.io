@@ -107,10 +107,40 @@ img{
   text-shadow:0 0 12px rgba(255,0,0,0.9);
   letter-spacing:2px;
 }
+
+  /* Barra de progresso fixa no topo */
+.top-progress-container{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:8px;
+  background:rgba(255,154,46,0.15);
+  z-index:9999;
+}
+
+.top-progress-bar{
+  height:100%;
+  width:10%; /* <-- progresso atual */
+  background:#ff9a2e;
+  box-shadow:0 0 12px rgba(255,154,46,0.9);
+  transition:width 0.5s ease;
+}
+
+/* Ajuste para não esconder conteúdo atrás da barra */
+body{
+  padding-top:8px;
+  }
+    
 </style>
 </head>
 
 <body>
+
+  <div class="top-progress-container">
+  <div class="top-progress-bar"></div>
+  </div>
+  
 <div class="container">
 
 <h1 id="title">Liron's Museum</h1>
@@ -137,6 +167,10 @@ Uma AU ambientada no universo de Dandy
      TikTok Oficial
   </a>
 
+<a class="btn" href="https://roblox.com">
+  Roblox!
+</a>
+  
   <span class="btn disabled">
     Comics (em breve)
   </span>
