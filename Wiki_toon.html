@@ -8,55 +8,206 @@
 <style>
 body{
   margin:0;
-  font-family:Arial;
+  font-family:Arial, Helvetica, sans-serif;
   background:#f6f6f6;
 }
 
-.content{
-  max-width:900px;
+.wrapper{
+  max-width:1100px;
   margin:40px auto;
+  display:flex;
+  gap:20px;
+  padding:20px;
+}
+
+.infobox{
+  width:300px;
+  background:white;
+  border:1px solid #ccc;
+  padding:15px;
+  height:fit-content;
+}
+
+.infobox h2{
+  margin-top:0;
+  text-align:center;
+}
+
+.stat{
+  margin:6px 0;
+}
+
+.bar{
+  height:10px;
+  background:#ddd;
+  border-radius:6px;
+  overflow:hidden;
+}
+
+.fill{
+  height:100%;
+  background:#ff9800;
+}
+
+.content{
+  flex:1;
   background:white;
   padding:20px;
   border:1px solid #ccc;
 }
 
-h1{
-  margin-top:0;
+.gallery{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+.gallery img{
+  width:140px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+.skill{
+  background:#fff3e0;
+  padding:10px;
+  border-left:4px solid #ff9800;
+  margin-bottom:10px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="content">
-  <h1 id="title">Carregando...</h1>
-  <p id="description"></p>
+<div class="wrapper">
+
+  <div class="infobox">
+    <h2 id="toon-name">Carregando...</h2>
+    <p><strong>Classe:</strong> <span id="toon-class"></span></p>
+    <p><strong>Status:</strong> <span id="toon-status"></span></p>
+
+    <hr>
+
+    <div id="stats"></div>
+  </div>
+
+  <div class="content">
+    <h1 id="title"></h1>
+    <p id="description"></p>
+
+    <h2>Habilidades</h2>
+    <div id="skills"></div>
+
+    <h2>Galeria</h2>
+    <div class="gallery" id="gallery"></div>
+  </div>
+
 </div>
 
 <script>
-// Pega variável da URL
 const params = new URLSearchParams(window.location.search);
 const name = params.get("name");
 
-// Banco de dados fake
 const database = {
   "Liron": {
-    title: "Liron",
-    description: "Liron é o protagonista misterioso do Museu."
+    class: "Main",
+    status: "Ativo",
+    description: "Liron é o protagonista misterioso do Museu.",
+    stats: {
+      Health: 80,
+      Skillcheck: 70,
+      "Movement Speed": 65,
+      Stamina: 75,
+      Stealth: 60,
+      "Extraction Speed": 85
+    },
+    skills: [
+      {
+        name: "Olhar Observador",
+        type: "Ativa",
+        description: "Revela interações escondidas próximas."
+      },
+      {
+        name: "Presença Silenciosa",
+        type: "Passiva",
+        description: "Reduz o barulho ao se mover."
+      }
+    ],
+    gallery: [
+      "assets/liron1.png",
+      "assets/liron2.png"
+    ]
   },
+
   "Noah": {
-    title: "Noah",
-    description: "Noah é um personagem secundário com passado obscuro."
+    class: "Side",
+    status: "Ativo",
+    description: "Noah é um personagem secundário com passado obscuro.",
+    stats: {
+      Health: 60,
+      Skillcheck: 75,
+      "Movement Speed": 80,
+      Stamina: 65,
+      Stealth: 70,
+      "Extraction Speed": 60
+    },
+    skills: [
+      {
+        name: "Instinto Rápido",
+        type: "Passiva",
+        description: "Aumenta levemente a velocidade após skillchecks."
+      }
+    ],
+    gallery: [
+      "assets/noah1.png"
+    ]
   }
 };
 
-// Verifica se existe
 if(database[name]){
-  document.getElementById("title").textContent = database[name].title;
-  document.getElementById("description").textContent = database[name].description;
+  const toon = database[name];
+
+  document.getElementById("title").textContent = name;
+  document.getElementById("toon-name").textContent = name;
+  document.getElementById("toon-class").textContent = toon.class;
+  document.getElementById("toon-status").textContent = toon.status;
+  document.getElementById("description").textContent = toon.description;
+
+  // Stats
+  const statsContainer = document.getElementById("stats");
+  for(const stat in toon.stats){
+    const value = toon.stats[stat];
+
+    statsContainer.innerHTML += `
+      <div class="stat">
+        <strong>${stat}</strong>
+        <div class="bar">
+          <div class="fill" style="width:${value}%"></div>
+        </div>
+      </div>
+    `;
+  }
+
+  // Skills
+  const skillsContainer = document.getElementById("skills");
+  toon.skills.forEach(skill=>{
+    skillsContainer.innerHTML += `
+      <div class="skill">
+        <strong>${skill.name}</strong> (${skill.type})<br>
+        ${skill.description}
+      </div>
+    `;
+  });
+
+  // Gallery
+  const gallery = document.getElementById("gallery");
+  toon.gallery.forEach(img=>{
+    gallery.innerHTML += `<img src="${img}" alt="${name}">`;
+  });
+
 }else{
-  document.getElementById("title").textContent = "Personagem não encontrado";
-  document.getElementById("description").textContent = "Esse toon ainda não existe na wiki.";
+  document.body.innerHTML = "<h1 style='text-align:center;margin-top:50px;'>Toon não encontrado.</h1>";
 }
 </script>
 
