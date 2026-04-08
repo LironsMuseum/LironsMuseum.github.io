@@ -2,213 +2,295 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Wiki Toon</title>
+<title>Liron Wiki - Toon</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+
+/* ===============================
+   🌙 DARK MODE BASE
+================================ */
+
 body{
   margin:0;
-  font-family:Arial, Helvetica, sans-serif;
-  background:#f6f6f6;
+  font-family:Segoe UI, Arial;
+  background:#0f1115;
+  color:#e6e6e6;
 }
 
-.wrapper{
-  max-width:1100px;
+.container{
+  max-width:1000px;
   margin:40px auto;
-  display:flex;
-  gap:20px;
-  padding:20px;
+  background:#181c22;
+  padding:30px;
+  border-radius:14px;
+  box-shadow:0 0 40px rgba(0,0,0,0.6);
 }
 
-.infobox{
-  width:300px;
-  background:white;
-  border:1px solid #ccc;
-  padding:15px;
-  height:fit-content;
-}
+/* ===============================
+   🎨 TÍTULO
+================================ */
 
-.infobox h2{
+h1{
   margin-top:0;
-  text-align:center;
+  font-size:32px;
 }
 
-.stat{
-  margin:6px 0;
+/* ===============================
+   🧩 SEÇÕES
+================================ */
+
+.section{
+  margin-top:35px;
 }
 
-.bar{
-  height:10px;
-  background:#ddd;
-  border-radius:6px;
-  overflow:hidden;
+.section-title{
+  font-size:20px;
+  padding-bottom:8px;
+  border-bottom:1px solid #2b313a;
+  margin-bottom:15px;
+  color:#ffb347;
 }
 
-.fill{
-  height:100%;
-  background:#ff9800;
+/* ===============================
+   ⭐ ESTRELAS
+================================ */
+
+.star{
+  color:#444;
+  font-size:18px;
 }
 
-.content{
-  flex:1;
-  background:white;
-  padding:20px;
-  border:1px solid #ccc;
+.star.filled{
+  color:#ff9800;
 }
 
-.gallery{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:10px;
+/* ===============================
+   📊 STATUS
+================================ */
+
+.stat-row{
+  margin-bottom:12px;
 }
 
-.gallery img{
-  width:140px;
-  border-radius:8px;
-  border:1px solid #ccc;
+.hidden-stat{
+  opacity:0.6;
+  font-size:14px;
 }
 
-.skill{
-  background:#fff3e0;
-  padding:10px;
+/* ===============================
+   🧠 HABILIDADES
+================================ */
+
+.skill-box{
+  background:#20252d;
+  padding:14px;
+  border-radius:10px;
+  margin-bottom:12px;
   border-left:4px solid #ff9800;
-  margin-bottom:10px;
 }
+
+/* ===============================
+   💬 FALAS
+================================ */
+
+.dialogue{
+  background:#20252d;
+  padding:10px;
+  margin-bottom:8px;
+  border-radius:8px;
+  font-style:italic;
+}
+
+.toggle-btn{
+  margin-top:10px;
+  background:#ff9800;
+  border:none;
+  padding:6px 12px;
+  border-radius:6px;
+  cursor:pointer;
+  color:#111;
+  font-weight:bold;
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="wrapper">
+<div class="container">
 
-  <div class="infobox">
-    <h2 id="toon-name">Carregando...</h2>
-    <p><strong>Classe:</strong> <span id="toon-class"></span></p>
-    <p><strong>Status:</strong> <span id="toon-status"></span></p>
+<h1 id="name">Carregando...</h1>
+<div id="classBox"></div>
 
-    <hr>
+<div class="section">
+<div class="section-title">Status</div>
+<div id="stats"></div>
+</div>
 
-    <div id="stats"></div>
-  </div>
+<div class="section">
+<div class="section-title">Status Ocultos</div>
+<div id="hiddenStats"></div>
+</div>
 
-  <div class="content">
-    <h1 id="title"></h1>
-    <p id="description"></p>
+<div class="section">
+<div class="section-title">Habilidades</div>
+<div id="skills"></div>
+</div>
 
-    <h2>Habilidades</h2>
-    <div id="skills"></div>
-
-    <h2>Galeria</h2>
-    <div class="gallery" id="gallery"></div>
-  </div>
+<div class="section">
+<div class="section-title">Falas</div>
+<div id="dialogues"></div>
+</div>
 
 </div>
 
 <script>
-const params = new URLSearchParams(window.location.search);
-const name = params.get("name");
+
+/* ===============================
+   🎨 CLASSES
+================================ */
+
+const classSystem = {
+  "A-Common": { color:"#e53935" },
+  "B-Uncommon": { color:"#fb8c00" },
+  "C-Rare": { color:"#fdd835" },
+  "D-Main": { color:"#43a047" },
+  "F-Lead": { color:"#8e24aa" },
+  "Sub-H-Primary": { color:"#ff9800" }
+};
+
+/* ===============================
+   📚 DATABASE (EXEMPLO)
+================================ */
 
 const database = {
-  "Liron": {
-    class: "Main",
-    status: "Ativo",
-    description: "Liron é o protagonista misterioso do Museu.",
-    stats: {
-      Health: 80,
-      Skillcheck: 70,
-      "Movement Speed": 65,
-      Stamina: 75,
-      Stealth: 60,
-      "Extraction Speed": 85
-    },
-    skills: [
-      {
-        name: "Olhar Observador",
-        type: "Ativa",
-        description: "Revela interações escondidas próximas."
-      },
-      {
-        name: "Presença Silenciosa",
-        type: "Passiva",
-        description: "Reduz o barulho ao se mover."
-      }
-    ],
-    gallery: [
-      "assets/liron1.png",
-      "assets/liron2.png"
-    ]
-  },
+  "Liron Firebloom": {
+    class:"Sub-H-Primary",
 
-  "Noah": {
-    class: "Side",
-    status: "Ativo",
-    description: "Noah é um personagem secundário com passado obscuro.",
-    stats: {
-      Health: 60,
-      Skillcheck: 75,
-      "Movement Speed": 80,
-      Stamina: 65,
-      Stealth: 70,
-      "Extraction Speed": 60
+    stats:{
+      "Skill Check":5,
+      "Movement Speed":5,
+      "Stamina":5,
+      "Extraction Speed":5,
+      "Stealth":5
     },
-    skills: [
-      {
-        name: "Instinto Rápido",
-        type: "Passiva",
-        description: "Aumenta levemente a velocidade após skillchecks."
-      }
+
+    hiddenStats:{
+      "DenseSnowResis":50,
+      "SwimSpeed":50,
+      "OverGrownResis":60,
+      "HauntResis":50,
+      "BadLuckCounter":50,
+      "IchorPuddleResis":50,
+      "BlackoutVisionCamp":50,
+      "BlackoutGlow":50
+    },
+
+    skills:[
+      {name:"Motivational Pressure", type:"Ativa", desc:"Aumenta extração temporariamente."},
+      {name:"Burning Presence", type:"Passiva", desc:"Aliados próximos ganham +1 stamina."},
+      {name:"Primary Authority", type:"Passiva", desc:"Imune a efeitos de medo."}
     ],
-    gallery: [
-      "assets/noah1.png"
-    ]
+
+    dialogues:{
+      active:[
+        "...",
+        "Eu deveria voltar a minha loja..."
+        "ugh... eu desprezo a presença desses vermes..."
+      ],
+      interaction:[
+        'Liron: "... só compra logo."',
+        'Lunaris: "..."',
+        'Liron: "Tá me ouvindo? Compra."',
+        'Lunaris: "..."'
+      ]
+    }
   }
 };
 
+/* ===============================
+   ⭐ FUNÇÃO ESTRELAS
+================================ */
+
+function generateStars(value){
+  let starsHTML = "";
+  for(let i=1;i<=5;i++){
+    if(i <= value){
+      starsHTML += `<span class="star filled">★</span>`;
+    }else{
+      starsHTML += `<span class="star">★</span>`;
+    }
+  }
+  return starsHTML;
+}
+
+/* ===============================
+   ⚙️ RENDER
+================================ */
+
+const params = new URLSearchParams(window.location.search);
+const name = params.get("name");
+
 if(database[name]){
+
   const toon = database[name];
 
-  document.getElementById("title").textContent = name;
-  document.getElementById("toon-name").textContent = name;
-  document.getElementById("toon-class").textContent = toon.class;
-  document.getElementById("toon-status").textContent = toon.status;
-  document.getElementById("description").textContent = toon.description;
+  document.getElementById("name").textContent = name;
+  document.getElementById("name").style.color =
+    classSystem[toon.class]?.color || "#fff";
 
-  // Stats
+  document.getElementById("classBox").innerHTML =
+    `<strong>Classe:</strong> ${toon.class}`;
+
+  // STATUS VISÍVEIS
   const statsContainer = document.getElementById("stats");
   for(const stat in toon.stats){
-    const value = toon.stats[stat];
-
     statsContainer.innerHTML += `
-      <div class="stat">
-        <strong>${stat}</strong>
-        <div class="bar">
-          <div class="fill" style="width:${value}%"></div>
-        </div>
+      <div class="stat-row">
+        ${stat}: ${generateStars(toon.stats[stat])}
       </div>
     `;
   }
 
-  // Skills
-  const skillsContainer = document.getElementById("skills");
+  // STATUS OCULTOS
+  const hiddenContainer = document.getElementById("hiddenStats");
+  for(const stat in toon.hiddenStats){
+    hiddenContainer.innerHTML += `
+      <div class="hidden-stat">
+        ${stat}: ${toon.hiddenStats[stat]}%
+      </div>
+    `;
+  }
+
+  // HABILIDADES
+  const skillContainer = document.getElementById("skills");
   toon.skills.forEach(skill=>{
-    skillsContainer.innerHTML += `
-      <div class="skill">
+    skillContainer.innerHTML += `
+      <div class="skill-box">
         <strong>${skill.name}</strong> (${skill.type})<br>
-        ${skill.description}
+        ${skill.desc}
       </div>
     `;
   });
 
-  // Gallery
-  const gallery = document.getElementById("gallery");
-  toon.gallery.forEach(img=>{
-    gallery.innerHTML += `<img src="${img}" alt="${name}">`;
+  // FALAS
+  const dialogueContainer = document.getElementById("dialogues");
+
+  dialogueContainer.innerHTML += "<strong>Ao usar habilidade ativa:</strong>";
+  toon.dialogues.active.forEach(line=>{
+    dialogueContainer.innerHTML += `<div class="dialogue">"${line}"</div>`;
+  });
+
+  dialogueContainer.innerHTML += "<br><strong>Interações:</strong>";
+  toon.dialogues.interaction.forEach(line=>{
+    dialogueContainer.innerHTML += `<div class="dialogue">${line}</div>`;
   });
 
 }else{
   document.body.innerHTML = "<h1 style='text-align:center;margin-top:50px;'>Toon não encontrado.</h1>";
 }
+
 </script>
 
 </body>
