@@ -16,8 +16,9 @@ body {
 }
 
 #container {
-    width: 900px;
-    margin: 20px auto;
+    max-width: 900px;
+    width: 95%;
+    margin: 15px auto;
     background-color: #ffffff;
     border: 1px solid #999;
 }
@@ -31,7 +32,7 @@ body {
 
 #header h1 {
     margin: 0;
-    font-size: 26px;
+    font-size: 22px;
 }
 
 #header p {
@@ -40,20 +41,21 @@ body {
 
 #content {
     display: flex;
+    flex-wrap: wrap; /* permite quebrar no celular */
 }
 
 #posts {
-    width: 650px;
+    flex: 2;
+    min-width: 280px;
     padding: 20px;
-    border-right: 1px solid #ccc;
 }
 
 .post {
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 }
 
 .post h2 {
-    font-size: 18px;
+    font-size: 17px;
     margin-bottom: 5px;
     color: #003366;
 }
@@ -70,13 +72,15 @@ body {
 }
 
 #sidebar {
-    width: 250px;
+    flex: 1;
+    min-width: 220px;
     padding: 20px;
     background-color: #f2f2f2;
+    border-left: 1px solid #ccc;
 }
 
 #sidebar h3 {
-    font-size: 14px;
+    font-size: 13px;
     border-bottom: 1px solid #999;
     padding-bottom: 5px;
 }
@@ -102,9 +106,21 @@ a {
     background-color: #eeeeee;
     border-top: 1px solid #999;
 }
-</style>
 
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    #content {
+        flex-direction: column;
+    }
+
+    #sidebar {
+        border-left: none;
+        border-top: 1px solid #ccc;
+    }
+}
+</style>
 </head>
+
 <body>
 
 <div id="container">
@@ -121,81 +137,39 @@ a {
             <div class="post">
                 <h2>Museu de Liron</h2>
                 <div class="meta">Postado em 12/04/2004 • Categoria: Histórico</div>
-
-                <p>
-                O Museu de Liron foi concebido como uma instituição de caráter educativo,
-                destinada ao público infantil, com a finalidade de apresentar os personagens
-                associados ao “Show do Liron”.
-                </p>
-
-                <p>
-                De acordo com registros coletados, as visitas guiadas eram conduzidas
-                pelos próprios personagens, que interagiam diretamente com os visitantes,
-                conduzindo explicações temáticas em cada setor do museu.
-                </p>
-
-                <p>
-                Testemunhos apontam que tais interações apresentavam alto nível de
-                imersão e comportamento aparentemente autônomo, aspecto que permanece
-                sem explicação técnica oficial.
-                </p>
+                <p>O Museu de Liron foi concebido como instituição educativa voltada ao público infantil, apresentando os personagens do “Show do Liron”.</p>
+                <p>Relatos indicam que as visitas eram conduzidas pelos próprios personagens, com interações diretas e altamente imersivas.</p>
             </div>
 
             <div class="post">
                 <h2>Personagens</h2>
                 <div class="meta">Postado em 15/04/2004 • Categoria: Investigação</div>
-
-                <p>
-                A hipótese inicial indicava que os personagens eram interpretados
-                por atores trajando figurinos. Entretanto, diversos relatos sugerem
-                inconsistências nesse modelo explicativo.
-                </p>
-
-                <p>
-                Visitantes descrevem movimentos e respostas que excediam padrões
-                comuns de atuação humana. Alguns registros mencionam a percepção
-                de presença física e comportamento independente.
-                </p>
-
-                <p>
-                Até o momento, não foram localizados documentos institucionais
-                que esclareçam os procedimentos técnicos envolvidos.
-                </p>
+                <p>Inicialmente acreditava-se que eram atores caracterizados. Contudo, testemunhos apontam comportamentos além do esperado para simples atuação humana.</p>
             </div>
 
             <div class="post">
                 <h2>Infraestrutura Interna</h2>
-                <div class="meta">Postado em 18/04/2004 • Categoria: Arquitetura</div>
-                <p>
-                Plantas parciais indicam a existência de áreas restritas não incluídas
-                nos roteiros públicos. A função dessas seções permanece indefinida.
-                </p>
+                <div class="meta">Postado em 18/04/2004</div>
+                <p>Plantas indicam áreas restritas fora do percurso público.</p>
             </div>
 
             <div class="post">
                 <h2>Relatos Arquivados</h2>
-                <div class="meta">Postado em 22/04/2004 • Categoria: Depoimentos</div>
-                <p>
-                Parte dos testemunhos foi preservada em arquivo físico e digital.
-                Observa-se padrão recorrente nas descrições comportamentais.
-                </p>
+                <div class="meta">Postado em 22/04/2004</div>
+                <p>Testemunhos preservados apresentam padrões semelhantes.</p>
             </div>
 
             <div class="post">
                 <h2>Status Atual</h2>
-                <div class="meta">Postado em 30/04/2004 • Categoria: Atualização</div>
-                <p>
-                O museu encontra-se oficialmente desativado. Informações sobre o
-                encerramento permanecem limitadas ao público.
-                </p>
+                <div class="meta">Postado em 30/04/2004</div>
+                <p>O museu encontra-se oficialmente desativado.</p>
             </div>
 
         </div>
 
         <div id="sidebar">
-
             <h3>Sobre</h3>
-            <p>Arquivo independente dedicado à documentação histórica do Projeto Liron.</p>
+            <p>Arquivo independente dedicado à documentação do Projeto Liron.</p>
 
             <h3>Arquivos</h3>
             <ul>
@@ -209,13 +183,12 @@ a {
                 <li><a href="#">Investigação</a></li>
                 <li><a href="#">Depoimentos</a></li>
             </ul>
-
         </div>
 
     </div>
 
     <div id="footer">
-        © 2004 Arquivo de Pesquisa Liron • Layout estilo clássico
+        © 2004 Arquivo de Pesquisa Liron
     </div>
 
 </div>
