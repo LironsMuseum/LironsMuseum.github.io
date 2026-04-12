@@ -9,14 +9,14 @@
 body {
     background-color: #d6d6d6;
     font-family: Verdana, Arial, sans-serif;
-    font-size: 14px;
+    font-size: 16px; /* aumentado */
     margin: 0;
     padding: 0;
     color: #000;
 }
 
 #container {
-    max-width: 900px;
+    max-width: 950px;
     width: 95%;
     margin: 15px auto;
     background-color: #ffffff;
@@ -26,63 +26,63 @@ body {
 #header {
     background-color: #003366;
     color: white;
-    padding: 20px;
+    padding: 25px;
     text-align: center;
 }
 
 #header h1 {
     margin: 0;
-    font-size: 22px;
+    font-size: 24px;
 }
 
 #header p {
-    font-size: 12px;
+    font-size: 14px;
 }
 
 #content {
     display: flex;
-    flex-wrap: wrap; /* permite quebrar no celular */
+    flex-wrap: wrap;
 }
 
 #posts {
     flex: 2;
-    min-width: 280px;
-    padding: 20px;
+    min-width: 300px;
+    padding: 25px;
 }
 
 .post {
-    margin-bottom: 35px;
+    margin-bottom: 45px;
 }
 
 .post h2 {
-    font-size: 17px;
-    margin-bottom: 5px;
+    font-size: 20px;
+    margin-bottom: 8px;
     color: #003366;
 }
 
 .meta {
-    font-size: 11px;
+    font-size: 13px;
     color: #666;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .post p {
-    line-height: 1.6;
-    margin-bottom: 10px;
+    line-height: 1.7;
+    margin-bottom: 14px;
 }
 
 #sidebar {
     flex: 1;
-    min-width: 220px;
-    padding: 20px;
+    min-width: 240px;
+    padding: 25px;
     background-color: #f2f2f2;
     border-left: 1px solid #ccc;
 }
 
 #sidebar h3 {
-    font-size: 13px;
+    font-size: 15px;
     border-bottom: 1px solid #999;
-    padding-bottom: 5px;
+    padding-bottom: 6px;
 }
 
 #sidebar ul {
@@ -91,7 +91,7 @@ body {
 }
 
 #sidebar ul li {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 a {
@@ -101,14 +101,19 @@ a {
 
 #footer {
     text-align: center;
-    font-size: 11px;
-    padding: 15px;
+    font-size: 13px;
+    padding: 18px;
     background-color: #eeeeee;
     border-top: 1px solid #999;
 }
 
-/* RESPONSIVO */
+/* MOBILE */
 @media (max-width: 768px) {
+
+    body {
+        font-size: 18px; /* ainda maior no celular */
+    }
+
     #content {
         flex-direction: column;
     }
@@ -116,6 +121,10 @@ a {
     #sidebar {
         border-left: none;
         border-top: 1px solid #ccc;
+    }
+
+    .post h2 {
+        font-size: 22px;
     }
 }
 </style>
@@ -137,39 +146,115 @@ a {
             <div class="post">
                 <h2>Museu de Liron</h2>
                 <div class="meta">Postado em 12/04/2004 • Categoria: Histórico</div>
-                <p>O Museu de Liron foi concebido como instituição educativa voltada ao público infantil, apresentando os personagens do “Show do Liron”.</p>
-                <p>Relatos indicam que as visitas eram conduzidas pelos próprios personagens, com interações diretas e altamente imersivas.</p>
+
+                <p>
+                O Museu de Liron foi concebido como uma instituição de caráter educativo,
+                destinada ao público infantil, com a finalidade de apresentar os personagens
+                associados ao “Show do Liron”.
+                </p>
+
+                <p>
+                Conforme registros históricos coletados ao longo dos anos, as visitas
+                guiadas eram conduzidas pelos próprios personagens do programa, que
+                interagiam diretamente com os visitantes e apresentavam conteúdos
+                temáticos relacionados a cada setor do museu.
+                </p>
+
+                <p>
+                Relatos consistentes descrevem experiências altamente imersivas,
+                nas quais os personagens aparentavam demonstrar comportamento
+                autônomo, respostas espontâneas e reações contextuais.
+                </p>
+
+                <p>
+                A ausência de documentação técnica detalhada sobre os métodos
+                empregados levanta questionamentos relevantes que permanecem
+                sem esclarecimento oficial até o presente momento.
+                </p>
             </div>
 
             <div class="post">
                 <h2>Personagens</h2>
                 <div class="meta">Postado em 15/04/2004 • Categoria: Investigação</div>
-                <p>Inicialmente acreditava-se que eram atores caracterizados. Contudo, testemunhos apontam comportamentos além do esperado para simples atuação humana.</p>
+
+                <p>
+                A hipótese inicial sustentava que os personagens eram interpretados
+                por atores trajando figurinos elaborados, prática comum em instituições
+                voltadas ao entretenimento infantil.
+                </p>
+
+                <p>
+                Entretanto, múltiplos depoimentos de visitantes indicam inconsistências
+                nessa explicação. Diversos relatos descrevem movimentos, padrões de
+                expressão e respostas comportamentais que ultrapassavam expectativas
+                convencionais de atuação humana.
+                </p>
+
+                <p>
+                Alguns testemunhos mencionam a percepção de presença física
+                singular e comportamento aparentemente independente.
+                </p>
+
+                <p>
+                Até o momento, não foram localizados registros institucionais que
+                esclareçam de maneira conclusiva os procedimentos técnicos ou
+                operacionais envolvidos na representação desses personagens.
+                </p>
             </div>
 
             <div class="post">
                 <h2>Infraestrutura Interna</h2>
-                <div class="meta">Postado em 18/04/2004</div>
-                <p>Plantas indicam áreas restritas fora do percurso público.</p>
+                <div class="meta">Postado em 18/04/2004 • Categoria: Arquitetura</div>
+
+                <p>
+                Plantas arquitetônicas parciais indicam a existência de áreas
+                restritas que não integravam o percurso público das visitas.
+                </p>
+
+                <p>
+                A finalidade dessas seções permanece indefinida, não havendo
+                registros claros sobre suas funções operacionais.
+                </p>
             </div>
 
             <div class="post">
                 <h2>Relatos Arquivados</h2>
-                <div class="meta">Postado em 22/04/2004</div>
-                <p>Testemunhos preservados apresentam padrões semelhantes.</p>
+                <div class="meta">Postado em 22/04/2004 • Categoria: Depoimentos</div>
+
+                <p>
+                Parte significativa dos testemunhos foi preservada em formato
+                físico e digital.
+                </p>
+
+                <p>
+                Observa-se recorrência nas descrições relacionadas ao comportamento
+                dos personagens e à atmosfera do ambiente.
+                </p>
             </div>
 
             <div class="post">
                 <h2>Status Atual</h2>
-                <div class="meta">Postado em 30/04/2004</div>
-                <p>O museu encontra-se oficialmente desativado.</p>
+                <div class="meta">Postado em 30/04/2004 • Categoria: Atualização</div>
+
+                <p>
+                O museu encontra-se oficialmente desativado.
+                </p>
+
+                <p>
+                Informações públicas sobre o encerramento das atividades
+                permanecem limitadas, e a maior parte dos documentos
+                institucionais não está disponível para consulta.
+                </p>
             </div>
 
         </div>
 
         <div id="sidebar">
             <h3>Sobre</h3>
-            <p>Arquivo independente dedicado à documentação do Projeto Liron.</p>
+            <p>
+            Arquivo independente dedicado à documentação histórica
+            e análise investigativa do Projeto Liron.
+            </p>
 
             <h3>Arquivos</h3>
             <ul>
@@ -181,6 +266,7 @@ a {
             <ul>
                 <li><a href="#">Histórico</a></li>
                 <li><a href="#">Investigação</a></li>
+                <li><a href="#">Arquitetura</a></li>
                 <li><a href="#">Depoimentos</a></li>
             </ul>
         </div>
@@ -188,7 +274,7 @@ a {
     </div>
 
     <div id="footer">
-        © 2004 Arquivo de Pesquisa Liron
+        © 2004 Arquivo de Pesquisa Liron • Layout clássico
     </div>
 
 </div>
