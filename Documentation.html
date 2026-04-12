@@ -279,5 +279,70 @@ a {
 
 </div>
 
+<script>
+const ANO_OFFSET = 22; // 2026 -> 2004
+let postsJaExibidos = [];
+
+function converterDataFalsa(dataReal) {
+    const dia = dataReal.getDate().toString().padStart(2, '0');
+    const mes = (dataReal.getMonth() + 1).toString().padStart(2, '0');
+    const anoFalso = dataReal.getFullYear() - ANO_OFFSET;
+    return `${dia}/${mes}/${anoFalso}`;
+}
+
+function horarioLiberacao(dataPost) {
+    const data = new Date(dataPost);
+    data.setHours(13, 0, 0, 0);
+    return data;
+}
+
+function verificarPosts(posts) {
+    const agora = new Date();
+    const container = document.getElementById('posts');
+
+    posts.forEach(post => {
+        const dataReal = new Date(post.data_publicacao);
+        const liberarEm = horarioLiberacao(post.data_publicacao);
+
+        if (agora >= liberarEm && !postsJaExibidos.includes(post.titulo)) {
+
+            const div = document.createElement('div');
+            div.className = 'post';
+
+            div.innerHTML = `
+                <h2>${post.titulo}</h2>
+                <div class="meta">
+                    Postado em ${converterDataFalsa(dataReal)} • Categoria: ${post.categoria}
+                </div>
+                <p>${post.conteudo}</p>
+            `;
+
+            container.appendChild(div);
+            postsJaExibidos.push(post.titulo);
+
+            // efeito opcional estilo "novo arquivo detectado"
+            div.style.backgroundColor = "#ffffcc";
+            setTimeout(() => {
+                div.style.transition = "background-color 2s";
+                div.style.backgroundColor = "transparent";
+            }, 100);
+        }
+    });
+}
+
+fetch('posts.json')
+.then(response => response.json())
+.then(posts => {
+
+    // Verifica imediatamente
+    verificarPosts(posts);
+
+    // Depois verifica a cada 1 segundo
+    setInterval(() => {
+        verificarPosts(posts);
+    }, 1000);
+});
+</script>
+    
 </body>
 </html>
