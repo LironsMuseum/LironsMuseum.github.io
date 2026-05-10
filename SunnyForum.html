@@ -15,14 +15,14 @@ body {
 .topbar {
     background-color: #1f1f1f;
     color: white;
-    padding: 15px 30px;
+    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: bold;
     color: #ff4444;
 }
@@ -31,12 +31,13 @@ body {
     padding: 8px;
     border-radius: 4px;
     border: none;
-    width: 220px;
+    width: 160px;
 }
 
 .container {
-    width: 80%;
-    margin: 30px auto;
+    width: 90%;
+    max-width: 700px;
+    margin: 20px auto;
 }
 
 .post {
@@ -53,19 +54,19 @@ body {
 }
 
 .post-title {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     margin: 5px 0;
 }
 
 .post-meta {
-    font-size: 12px;
+    font-size: 13px;
     color: #777;
     margin-bottom: 10px;
 }
 
 .comment-toggle {
-    margin-top: 10px;
+    margin-top: 15px;
     color: #0077cc;
     cursor: pointer;
     font-weight: bold;
@@ -78,21 +79,34 @@ body {
     padding-top: 15px;
 }
 
+/* Comentários */
 .comment {
-    margin-bottom: 12px;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    align-items: flex-start;
 }
 
-.comment strong {
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.comment-content strong {
     display: block;
     color: #333;
 }
 
+.comment-content p {
+    margin: 4px 0 0 0;
+}
+
 .reply {
-    margin-left: 25px;
+    margin-left: 40px;
     border-left: 3px solid #ddd;
     padding-left: 10px;
 }
-
 </style>
 </head>
 
@@ -130,38 +144,55 @@ body {
         <div class="comments-section" id="comments">
 
             <div class="comment">
-                <strong>Anon6</strong>
-                Ei, eu lembro de levar minha sobrinha no Museu um monte de vezes!
+                <img src="https://i.pravatar.cc/40?img=1" class="avatar">
+                <div class="comment-content">
+                    <strong>Anon6</strong>
+                    <p>Ei, eu lembro de levar minha sobrinha no Museu um monte de vezes!</p>
+                </div>
             </div>
 
             <div class="comment">
-                <strong>Alienator</strong>
-                Uau! Esse era meu lugar favorito da cidade, pena que fecharam por causa do show animado falir, pequenos lugares assim deviam ter mais reconhecimento
+                <img src="https://i.pravatar.cc/40?img=2" class="avatar">
+                <div class="comment-content">
+                    <strong>Alienator</strong>
+                    <p>Uau! Esse era meu lugar favorito da cidade, pena que fecharam por causa do show animado falir, pequenos lugares assim deviam ter mais reconhecimento</p>
+                </div>
             </div>
 
             <div class="comment">
-                <strong>VanessaShelly</strong>
-                Ei pera- a minha tia já trabalhou aí!
+                <img src="https://i.pravatar.cc/40?img=3" class="avatar">
+                <div class="comment-content">
+                    <strong>VanessaShelly</strong>
+                    <p>Ei pera- a minha tia já trabalhou aí!</p>
+                </div>
             </div>
 
             <div class="comment reply">
-                <strong>Respondendo à VanessaShelly</strong>
-                <strong>JohnAnon8</strong>
-                A sua tia é a Julia Freeman?
+                <img src="https://i.pravatar.cc/40?img=4" class="avatar">
+                <div class="comment-content">
+                    <small>Respondendo à VanessaShelly</small>
+                    <strong>JohnAnon8</strong>
+                    <p>A sua tia é a Julia Freeman?</p>
+                </div>
             </div>
 
             <div class="comment reply">
-                <strong>VanessaShelly</strong>
-                como você conhece ela?
+                <img src="https://i.pravatar.cc/40?img=3" class="avatar">
+                <div class="comment-content">
+                    <strong>VanessaShelly</strong>
+                    <p>como você conhece ela?</p>
+                </div>
             </div>
 
             <div class="comment reply">
-                <strong>JohnAnon8</strong>
-                Ela era a cuidadora da personagem Hazel!
+                <img src="https://i.pravatar.cc/40?img=4" class="avatar">
+                <div class="comment-content">
+                    <strong>JohnAnon8</strong>
+                    <p>Ela era a cuidadora da personagem Hazel!</p>
+                </div>
             </div>
 
         </div>
-
     </div>
 
 </div>
