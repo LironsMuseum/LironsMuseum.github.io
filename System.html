@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema - Liron</title>
+
+<style>
+body {
+    margin: 0;
+    background-color: #0a0a0a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "Courier New", monospace;
+}
+
+.monitor {
+    width: 800px;
+    height: 500px;
+    background-color: #000;
+    border: 8px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 0 40px #00ff99;
+    padding: 20px;
+    color: #00ff99;
+    overflow-y: auto;
+}
+
+.output {
+    white-space: pre-wrap;
+}
+
+.input-line {
+    display: flex;
+}
+
+.prompt {
+    margin-right: 5px;
+}
+
+input {
+    background: none;
+    border: none;
+    outline: none;
+    color: #00ff99;
+    font-family: inherit;
+    font-size: 16px;
+    width: 100%;
+}
+</style>
+</head>
+
+<body>
+
+<div class="monitor">
+    <div class="output" id="output">
+Sistema iniciado...
+Digite um comando.
+    </div>
+
+    <div class="input-line">
+        <div class="prompt">></div>
+        <input type="text" id="commandInput" autofocus>
+    </div>
+</div>
+
+<script>
+const input = document.getElementById("commandInput");
+const output = document.getElementById("output");
+
+input.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        let command = input.value.trim();
+
+        output.innerHTML += "\n> " + command;
+
+        if (command === "Primary") {
+            output.innerHTML += "\nAcesso autorizado...";
+            setTimeout(() => {
+                window.location.href = "https://lironsmuseum.github.io/Liron";
+            }, 1500);
+        } else {
+            output.innerHTML += "\nComando inválido.";
+        }
+
+        input.value = "";
+        output.scrollTop = output.scrollHeight;
+    }
+});
+</script>
+
+</body>
+</html>
