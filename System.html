@@ -70,17 +70,27 @@ Digite um comando.
 const input = document.getElementById("commandInput");
 const output = document.getElementById("output");
 
+const commands = {
+    "primary": "https://lironsmuseum.github.io/Liron",
+    "bluy": "LM-bluy.html",
+    "carrol": "LM-carrol.html",
+    "noah": "Noah.html",
+    "jornal": "Jornal/index.html",
+    "sunnyland": "Jornal/index.html"
+};
+
 input.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
-        let command = input.value.trim();
+        let originalCommand = input.value.trim();
+        let command = originalCommand.toLowerCase();
 
-        output.innerHTML += "\n> " + command;
+        output.innerHTML += "\n> " + originalCommand;
 
-        if (command === "Primary") {
+        if (commands[command]) {
             output.innerHTML += "\nAcesso autorizado...";
             setTimeout(() => {
-                window.location.href = "https://lironsmuseum.github.io/Liron";
-            }, 1500);
+                window.location.href = commands[command];
+            }, 1200);
         } else {
             output.innerHTML += "\nComando inválido.";
         }
