@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Palette Generator</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#E7E7F8;
+    overflow:hidden;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+/* Fundo */
+
+.topPattern{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:170px;
+    background:
+        linear-gradient(-45deg,#BCA8FF 25%,transparent 25%),
+        linear-gradient(45deg,#BCA8FF 25%,transparent 25%);
+    background-size:60px 60px;
+    background-position:0 0,30px 30px;
+    opacity:.5;
+}
+
+.circle{
+    position:absolute;
+    border-radius:50%;
+    background:white;
+}
+
+.c1{
+    width:160px;
+    height:160px;
+    left:-60px;
+    top:110px;
+}
+
+.c2{
+    width:110px;
+    height:110px;
+    right:30px;
+    top:250px;
+}
+
+.c3{
+    width:70px;
+    height:70px;
+    left:40px;
+    bottom:120px;
+}
+
+.card{
+
+    width:min(92vw,430px);
+
+    background:white;
+
+    border:5px solid #8E63FF;
+
+    border-radius:35px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+}
+
+.corner{
+
+    width:48px;
+
+    height:48px;
+
+    background:white;
+
+    border:5px solid #8E63FF;
+
+    position:absolute;
+
+    transform:rotate(45deg);
+
+    top:-28px;
+
+    left:35px;
+
+    z-index:5;
+
+}
+
+.palette{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.color{
+
+    height:120px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 30px;
+
+    transition:.25s;
+
+}
+
+.hex{
+
+    font-size:30px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    user-select:none;
+
+}
+
+.star{
+
+    font-size:34px;
+
+    user-select:none;
+
+}
+
+.footer{
+
+    padding:18px;
+
+    background:white;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+button{
+
+    background:#8E63FF;
+
+    color:white;
+
+    border:none;
+
+    border-radius:15px;
+
+    padding:14px 28px;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+button:hover{
+
+    transform:scale(1.05);
+
+}
+
+.toast{
+
+    position:fixed;
+
+    bottom:25px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:#333;
+
+    color:white;
+
+    padding:12px 18px;
+
+    border-radius:12px;
+
+    opacity:0;
+
+    transition:.25s;
+
+}
+
+.toast.show{
+
+    opacity:1;
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="topPattern"></div>
+
+<div class="circle c1"></div>
+<div class="circle c2"></div>
+<div class="circle c3"></div>
+
+<div class="card">
+
+<div class="corner"></div>
+
+<div class="palette">
+
+<div class="color">
+<div class="hex"></div>
+<div class="star">★</div>
+</div>
+
+<div class="color">
+<div class="hex"></div>
+<div class="star">★</div>
+</div>
+
+<div class="color">
+<div class="hex"></div>
+<div class="star">★</div>
+</div>
+
+<div class="color">
+<div class="hex"></div>
+<div class="star">★</div>
+</div>
+
+<div class="color">
+<div class="hex"></div>
+<div class="star">★</div>
+</div>
+
+<div class="color">
+<div class="hex"></div>
+<div class="star">★</div>
+</div>
+
+<div class="color">
+<div class="hex"></div>
+<div class="star">★</div>
+</div>
+
+</div>
+
+<div class="footer">
+<button onclick="gerar()">🎲 Gerar Paleta</button>
+</div>
+
+</div>
+
+<div class="toast" id="toast">
+HEX copiado!
+</div>
+
+<script>
+
+function corAleatoria(){
+    return "#" +
+    Math.floor(Math.random()*16777215)
+    .toString(16)
+    .padStart(6,"0")
+    .toUpperCase();
+}
+
+function luminancia(hex){
+
+    const r=parseInt(hex.substr(1,2),16);
+    const g=parseInt(hex.substr(3,2),16);
+    const b=parseInt(hex.substr(5,2),16);
+
+    return 0.299*r+0.587*g+0.114*b;
+}
+
+function copiar(texto){
+
+    navigator.clipboard.writeText(texto);
+
+    const toast=document.getElementById("toast");
+
+    toast.classList.add("show");
+
+    setTimeout(()=>{
+        toast.classList.remove("show");
+    },1200);
+
+}
+
+function gerar(){
+
+    const blocos=document.querySelectorAll(".color");
+
+    const cores=[];
+
+    for(let i=0;i<6;i++){
+        cores.push(corAleatoria());
+    }
+
+    blocos.forEach((bloco,i)=>{
+
+        bloco.style.background=cores[i];
+
+        const hex=bloco.querySelector(".hex");
+        const star=bloco.querySelector(".star");
+
+        hex.textContent=cores[i];
+
+        hex.onclick=()=>{
+            copiar(cores[i]);
+        };
+
+        hex.style.color=
+            luminancia(cores[i])>160
+            ?"#333"
+            :"#FFF";
+
+        let indice;
+
+        do{
+            indice=Math.floor(Math.random()*6);
+        }while(indice===i);
+
+        star.style.color=cores[indice];
+
+    });
+
+}
+
+gerar();
+
+</script>
+
+</body>
+</html>
